@@ -4,22 +4,41 @@ let mail = ["sofia@gmail.com", "leonardo@gmail.com", "alessia@gmail.com", "boole
 
 // 2- permetto all'utente di inserire la mail 
 
-let ins_mail = (prompt("inserisci la tua mail"))
 
-// 3- controllo che sia nella lista 
+const check_email = document.getElementById("check");
 
-let check_mail = false;
+check_email.addEventListener('click', function(){
 
-for(let i = 0; i< mail.length; i++){
+    let ins_mail = document.getElementById("exampleInputEmail1").value;
 
-    if (ins_mail == mail[i]){
-        check_mail = true;
+    // 3- controllo che sia nella lista 
+
+    let check_mail = false;
+
+    for(let i = 0; i< mail.length; i++){
+
+        if (ins_mail == mail[i]){
+            check_mail = true;
+        }
     }
+
+    if(check_mail){
+        let valid_mail = "email trovata"
+        document.getElementById('email_answer').innerHTML = valid_mail
+    }
+
+    else{
+        let undefined_mail = "email non trovata"
+        document.getElementById('email_answer').innerHTML = undefined_mail
+    }
+
+});
+
+// riprova button
+function Refresh(){
+    window.parent.location = window.parent.location.href;
 }
-    
-if(check_mail){
-    console.log ('email trovata');
-}
-else{
-    console.log ('email non trovata');
-}
+
+
+
+
